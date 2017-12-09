@@ -1,8 +1,9 @@
 import React from 'react';
 
- import {  Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+ import {  Content } from 'native-base';
 import  { TwitterCard }  from '../../components';
 
+//contains list of twitter cards..
 const HomeTab = () => {
 
     return (

@@ -3,16 +3,17 @@ import { Text,TextInput, View } from 'react-native';
 import { Container,Title,Content, Left,Right,Body, Header,Item,Icon,Input,Button} from 'native-base';
 //import default from '../../../native-base-theme/variables/material';
 
-//make functional component
+//make functional component to show header of SearchScreen
 const SearchHeader = (props) => {
+
 //destructuring to use styles so that to call textStyle do not need to do styles.textStyle
-  const { textStyle, viewStyle } = styles;
-  const {navigation} =props;
+   const {navigation} =props;
   //props example style used
   return (
-  
+  //nativebase header with searchbar
   <Header searchBar style={{backgroundColor:'white'}}>
   <Left>
+    {/* button to open drawer navigator */}
     <Button
         transparent
         onPress={() => navigation.navigate("DrawerOpen")}>
@@ -23,7 +24,7 @@ const SearchHeader = (props) => {
      
      <Item style={{width: 200, backgroundColor: 'lightgrey'}}>
     <Input placeholder="Search" 
-          // onChangeText={(text) => this.setState({text})}
+           onChangeText={(text) => this.setState({text})}
 
         />
       </Item>
@@ -37,22 +38,5 @@ const SearchHeader = (props) => {
   );
 };
 
-//new object styles created for diff style components camelcse instead of css selectors
-const styles = {
-  viewStyle: { backgroundColor: '#B7CEEC',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: 60,
-  paddingTop: 10,
-  shadowColor: 'red', //000 for black
-  shadowOffset: { width: 10, height: 20 },
-  shadowOpacity: 1,
-  elevation: 10,
-  position: 'relative'
- },
-  textStyle: { fontSize: 20 }
-};
-
 //make component available to other parts of app
-
 export default SearchHeader;

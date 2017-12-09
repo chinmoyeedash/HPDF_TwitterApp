@@ -15,13 +15,17 @@ import {
   View,
   Icon
 } from "native-base";
+
+//route name and icon as needs to be shown on the side bar 
 const routes = [{name: "Profile",icon: 'contact'},{name: "Lists", icon: 'list-box'},{name: "Moments",icon: 'thunderstorm'}, {name: 'Highlights',icon:'pricetags'} ];
 let userdetails='';
+
 export default class SideBar extends React.Component {
  
   constructor() {
     super();
     
+    //hardcoding userdetails info as json
     userdetails = {
           username: 'Chinmoyee Dash',
           userid: '@Chinmoyee_dash',
@@ -32,6 +36,7 @@ export default class SideBar extends React.Component {
         console.log(userdetails + 'user');
   }
 
+  //plan to use Asynstorage to keep logged in user info
 // async getUserDetails() {
 //   try {
 //     let userdetails = await AsyncStorage.getItem('Userdetails');
@@ -45,6 +50,8 @@ export default class SideBar extends React.Component {
 //   }
 //}
   render() {
+
+    //destructuring user info from prop
     const {username, userid,thumbnail,following,followers} = userdetails;
     console.log(username);
     return (
@@ -52,26 +59,24 @@ export default class SideBar extends React.Component {
         <Content>
         <Card>
             <CardItem >
-              <View style = {{flex: 1,
-        flexDirection: 'column', justifyContent: 'flex-end'}}>
+              <View style = {{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
               
               <Thumbnail source={require('../../assets/images/baby.jpg')} />
-            
-              
-                
-                  <Text style={{fontWeight: 'bold'}}>{username}</Text>
-                  <Text note>{userid}</Text>
+              <Text style={{fontWeight: 'bold'}}>{username}</Text>
+              <Text note>{userid}</Text>
                   
               
             <View style = {{flexDirection: 'row'}} >
               <Text>{following} Following </Text>
-                  <Text >{followers} Followers</Text>
-                  </View>
-                  </View>
+              <Text >{followers} Followers</Text>
+              </View>
+              </View>
              </CardItem>
            
         
           <CardItem style={{elevation: 2,borderBottomWidth: 4,borderTopWidth: 4}}>
+
+          {/* Show list of routes and its icon, and navigate to the route when pressed */}
           <List
             dataArray={routes}
             renderRow={data => {

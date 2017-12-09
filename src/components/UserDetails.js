@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { View, Text, Badge, Icon } from 'native-base';
 
+//Receiving props from twittercard to render tweet's user info.. the first line
 const UserDetails = (props) => {
   UserDetails.propTypes = {
     titleText: PropTypes.string,
@@ -21,13 +22,14 @@ return (
 //  <Text> Start here, </Text> <Text> finish here </Text>
 // </View>
 <View>
+  {/* Show the info in one line */}
    <View style={{flexDirection: 'row'}}>
-        <Text style={styles.titleText} onPress={this.onPressTitle}>
+      <Text style={styles.titleText} onPress={this.onPressTitle}>
           {titleText}
-        </Text>
-        <Badge small primary>
-   <Icon name="star" style={{ fontSize: 15, color: '#fff', lineHeight: 20 }}/>
-  </Badge>
+      </Text>
+    <Badge small primary>
+     <Icon name="star" style={{ fontSize: 15, color: '#fff', lineHeight: 20 }}/>
+    </Badge>
         <Text note>  {twitterName} </Text>
         <Text note>{lastSeenTime}</Text>
       </View>

@@ -16,10 +16,8 @@ import {
   Button,
   H1
 } from "native-base";
-// import { StackNavigator } from "react-navigation";
-// import EditScreenOne from "./EditScreenOne.js";
-// import EditScreenTwo from "./EditScreenTwo.js";
 
+// just a dummy page showing card where profile info should be shown
 export default class Profile extends React.Component {
   static navigationOptions = {
     title: 'Profile',

@@ -3,7 +3,7 @@ import {StyleSheet, Image} from 'react-native';
 import { Container, View, Header,Item,Icon,Input,Button, Text} from 'native-base';
 import { FooterBottom } from '../../components';
 
-
+// just a dummy page
 class Notifications extends Component  {
   static navigationOptions = {
       tabBarIcon: ({ tintColor }) => (

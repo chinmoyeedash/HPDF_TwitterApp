@@ -2,8 +2,9 @@ import React from 'react';
 import { Image, View } from 'react-native';
 import {  Card,CardItem,Form,Picker,Left,Right,Thumbnail,Body,  Button, Icon, Text  } from 'native-base';
 import UserDetails from './UserDetails';
-//import { UserDetails } from '';
 const Item = Picker.Item;
+
+//showing one tweet info
 const TwitterCard = () => {
 
     return (   
@@ -13,6 +14,7 @@ const TwitterCard = () => {
                <Thumbnail source={require('../assets/images/baby.jpg')} />
             
                <Body style ={{flexDirection: 'row'}}>
+                  {/* hardcoded info being passed as props to Userdetails where it will be rendered */}
                  <UserDetails
                    titleText="Nature's Beauty"
                    bodyText="If we surrendered to earth's intelligence we could rise up rooted, like trees."

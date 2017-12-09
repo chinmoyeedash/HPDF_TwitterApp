@@ -2,14 +2,15 @@ import React from "react";
 import {StyleSheet, Image } from 'react-native';
 import getTheme from '../../../native-base-theme/variables/material';
 import {  FooterBottom, HeaderTop } from '../../components'
-import { View,Container, Header, Title, Left, Icon, Right, Button, Body, Content, Fab, Tab, Tabs, TabHeading,Text, Card, } from "native-base";
+import {Container, Icon, Fab } from "native-base";
 import HomeTab from './HomeTab';
-import SearchScreen from './SearchScreen';
+
 
 import HomeScreenTab from './index'
 
-//The screen that calles the HomeTab
+//The screen that calles the HomeTab containing list of twittercards
 class HomeScreen extends React.Component {
+  //setting the tabbar icon for the screen
   static navigationOptions = {
      tabBarIcon: ({ tintColor }) => (
          <Icon name="home" style={{color: tintColor}} />
@@ -18,10 +19,9 @@ class HomeScreen extends React.Component {
  
   constructor() {
     super();
+    //setting state for FAB to check if pressed
     this.state = {
       active: true,
-    //  searchActive:true,
-
     };
   
   }
@@ -51,15 +51,7 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  tabbar: {
-    height: 49,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: 'red',
-    backgroundColor: '#fff'
-  },
+ 
   icon: {
     width: 30,
     height: 30,

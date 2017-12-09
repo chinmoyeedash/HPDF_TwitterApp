@@ -13,14 +13,14 @@ import SideBar from "../SideBar/SideBar.js";
 import { ScrollView, Text } from 'react-native';
 import TabBarComponent from './TabBarComponent';
 
+//creating tabnavigator for mainscreen, passing a custom tabbar component
 const HomeScreenTab = TabNavigator({
   Home: {screen: HomeScreen},
   Search: { screen: SearchScreen},
   Notif: {screen: Notifications}, 
   Message: {screen: Messages},
 	},{
-		tabBarComponent: props => (
-		<TabBarComponent{...props} />), 
+		tabBarComponent: props => (<TabBarComponent{...props} />), 
 		tabBarPosition: 'top',
 		animationEnabled: true,
 		tabBarOptions: {
@@ -37,7 +37,7 @@ const HomeScreenTab = TabNavigator({
 } );
 
 
-
+//creating drawernavigator for mainscreen needed to show the side drawer and the screens its linked to
 const HomeScreenRouter = DrawerNavigator(
   {
     Home: { screen: HomeScreenTab  },
@@ -47,6 +47,7 @@ const HomeScreenRouter = DrawerNavigator(
     Highlights: { screen: Lists }
   },
   {
+    // passing all route info as props to the custom Sidebar component 
     contentComponent: props => <SideBar {...props} />
   }
 );

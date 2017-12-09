@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Platform } from "react-native";
 import { Container, Header, Title, Content, Button, Icon, Text, Right, Body, Left, Picker, Form, Item as FormItem } from "native-base";
 const Item = Picker.Item;
+
+// just a dummy page
 export default class Moments extends Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem,Body,Title,Left,Button,Right,Icon, Text } from 'native-base';
+
+// just a dummy page showing list
 export default class Lists extends Component {
     static navigationOptions = {
         title: 'Lists',
