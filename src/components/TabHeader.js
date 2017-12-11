@@ -1,14 +1,14 @@
 import React from 'react';
 import { TouchableWithoutFeedback,Image, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { Container, Header, Title, Left, Icon, Right, Button, Body, Content, Fab, Tab, 
+import { Container,Thumbnail, Header, Title, Left, Icon, Right, Button, Body, Content, Fab, Tab, 
   Tabs, TabHeading,Text } from "native-base";
 
 //make functional component which takes navigation as props for drawer navigation
 const HomeHeader = (props) => {
 
   //destructuring props so that to call navigate do not need to do this.props.navigation
-   const {navigation} =props;
+   const {navigation,tabKey} =props;
 
   //returns the header for homescreen 
     return (
@@ -17,13 +17,13 @@ const HomeHeader = (props) => {
     <Button
         transparent
         onPress={() => navigation.navigate("DrawerOpen")}>
-        <Icon name="menu" style={{color: 'blue'}} />
+         <Thumbnail source={require('../assets/images/baby.jpg')} small/>
     </Button>
     </Left>
     <Body>
-    <Title style={{color: 'black',alignContent: 'flex-start'}}>Home</Title>
+    <Title style={{color: 'black',alignContent: 'flex-start'}}>{tabKey}</Title>
     </Body>
-    <Right />
+    <Right/>
     </Header>
   );
 };

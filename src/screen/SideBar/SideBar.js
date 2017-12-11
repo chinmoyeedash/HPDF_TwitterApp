@@ -59,19 +59,19 @@ export default class SideBar extends React.Component {
         <Content>
         <Card>
             <CardItem >
-              <View style = {{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
+            <View style = {{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
               
               <Thumbnail source={require('../../assets/images/baby.jpg')} />
               <Text style={{fontWeight: 'bold'}}>{username}</Text>
               <Text note>{userid}</Text>
                   
               
-            <View style = {{flexDirection: 'row'}} >
-              <Text>{following} Following </Text>
-              <Text >{followers} Followers</Text>
+              <View style = {{flexDirection: 'row'}} >
+                <Text>{following} Following </Text>
+                <Text >{followers} Followers</Text>
               </View>
-              </View>
-             </CardItem>
+            </View>
+            </CardItem>
            
         
           <CardItem style={{elevation: 2,borderBottomWidth: 4,borderTopWidth: 4}}>

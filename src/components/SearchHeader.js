@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text,TextInput, View } from 'react-native';
-import { Container,Title,Content, Left,Right,Body, Header,Item,Icon,Input,Button} from 'native-base';
+import { Container,Thumbnail,Title,Content, Left,Right,Body, Header,Item,Icon,Input,Button} from 'native-base';
+//import SearchScreen from '../screen/SearchScreen'
 //import default from '../../../native-base-theme/variables/material';
 
 //make functional component to show header of SearchScreen
@@ -17,14 +18,14 @@ const SearchHeader = (props) => {
     <Button
         transparent
         onPress={() => navigation.navigate("DrawerOpen")}>
-        <Icon name="menu" style={{color: 'blue'}} />
+         <Thumbnail source={require('../assets/images/baby.jpg')} small />
     </Button>
     </Left>
     <Body >
      
-     <Item style={{width: 200, backgroundColor: 'lightgrey'}}>
-    <Input placeholder="Search" 
-           onChangeText={(text) => this.setState({text})}
+     <Item rounded style={{width: 200, backgroundColor: 'lightgrey'}}>
+    <Input placeholder="Search Twitter" 
+           onChangeText={(text) => navigation.navigate("SearchScreen")}
 
         />
       </Item>
@@ -37,6 +38,8 @@ const SearchHeader = (props) => {
 </Header>
   );
 };
+
+
 
 //make component available to other parts of app
 export default SearchHeader;

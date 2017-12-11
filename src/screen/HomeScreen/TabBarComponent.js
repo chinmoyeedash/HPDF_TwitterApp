@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from '../../components/HomeHeader';
+import TabHeader from '../../components/TabHeader';
 import SearchHeader from '../../components/SearchHeader';
 import {StyleSheet,Platform, Text, TouchableNativeFeedback, View,ScrollView, Animated } from 'react-native';
 import {  Content,Header,Left,Body,Icon, Image,Right,Button,Title} from 'native-base';
@@ -12,21 +12,20 @@ class TabBarComponent extends React.Component {
     //maintaining state to check if search tab selected...by default false
     this.state = {
          searchActive:false,
-
+         tabKey: 'Home',
     };
+   
     //binding the button press function to the button
-    this.onButtonPress = this.onButtonPress.bind(this);
- 
-    
+    this.onButtonPress = this.onButtonPress.bind(this);   
 };
 
 //checks if serch tab pressed then update state info
 onButtonPress(tabKey) {
      console.log("key in button="+tabKey);
     if (tabKey=='Search') {
-      this.setState({searchActive :true});
+      this.setState({searchActive :true,tabKey: tabKey});
     } else {
-      this.setState({searchActive :false});
+      this.setState({searchActive :false,tabKey: tabKey});
     }
   }
 
@@ -50,7 +49,7 @@ render () {
       console.log('searchActive true');
         header=<SearchHeader navigation={navigation}/>
     } else {
-        header=<HomeHeader navigation={navigation}/>;
+        header=<TabHeader navigation={navigation} tabKey = {this.state.tabKey} />;
     }
 
 
