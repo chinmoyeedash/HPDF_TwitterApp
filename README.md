@@ -16,6 +16,7 @@ Features:-
 6. Organization of structure basically done keeping reusability in mind
 
 Steps to set up development environment 
+
     --Follow the steps as mentioned in "Getting Started" section of react-native website in the 
       "Build with native code" tab  
     
