@@ -34,6 +34,7 @@ export default class SideBar extends React.Component {
           thumbnail: '../../assets/images/tree.jpg',
         };
         console.log(userdetails + 'user');
+
   }
 
   //plan to use Asynstorage to keep logged in user info

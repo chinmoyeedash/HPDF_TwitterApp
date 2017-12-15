@@ -1,33 +1,13 @@
 import React from 'react';
 import TabHeader from '../../components/TabHeader';
-import SearchHeader from '../../components/SearchHeader';
+
 import {StyleSheet,Platform, Text, TouchableNativeFeedback, View,ScrollView, Animated } from 'react-native';
 import {  Content,Header,Left,Body,Icon, Image,Right,Button,Title} from 'native-base';
 
 
 // custom tabbar component created to show separate headers for the tabs based on tab selected
 class TabBarComponent extends React.Component {
-  constructor() {
-    super();
-    //maintaining state to check if search tab selected...by default false
-    this.state = {
-         searchActive:false,
-         tabKey: 'Home',
-    };
-   
-    //binding the button press function to the button
-    this.onButtonPress = this.onButtonPress.bind(this);   
-};
-
-//checks if serch tab pressed then update state info
-onButtonPress(tabKey) {
-     console.log("key in button="+tabKey);
-    if (tabKey=='Search') {
-      this.setState({searchActive :true,tabKey: tabKey});
-    } else {
-      this.setState({searchActive :false,tabKey: tabKey});
-    }
-  }
+  
 
 //renders the header based on tab selected
 render () {
@@ -35,9 +15,9 @@ render () {
     navigation,
     renderIcon,
     activeTintColor,
-                inactiveTintColor,
-                jumpToIndex
-        } = this.props;
+    inactiveTintColor,
+    jumpToIndex
+    } = this.props;
     console.log(this.props);
     const {routes} = navigation.state;
     console.log(routes);
@@ -45,21 +25,24 @@ render () {
   
     //check for state and update header
     let header=null;
-    if (!!this.state.searchActive) {
-      console.log('searchActive true');
-        header=<SearchHeader navigation={navigation}/>
-    } else {
-        header=<TabHeader navigation={navigation} tabKey = {this.state.tabKey} />;
-    }
-
+    let currentIndex=navigation.state.index;
+    let currentKey=navigation.state.routes[currentIndex].key
+    console.log();
+    // if (currentIndex ==1)  {
+    //       console.log('searchActive true');
+    //     header=<SearchHeader navigation={navigation}/>
+    // } else {
+    //     header=<TabHeader navigation={navigation} tabKey = {currentKey} />;
+    // }
+    header=<TabHeader navigation={navigation} tabKey = {currentKey} />;
 
     return (
       
     <View>
       
+      
      {/* show the header as initialized by tab pressing */}
-    {header}
-   
+     {header}
     
   
     <View style={styles.tabbar}>
@@ -67,16 +50,17 @@ render () {
         {routes && routes.map((route, index) => {
           const focused = index === navigation.state.index;
           const tintColor = focused ? activeTintColor : inactiveTintColor;
-          console.log('route='+route+'index='+index);
          const tabKey = route.key;
+         
           return (
             
             // show buttons for tabs 
             <TouchableNativeFeedback
               key={route.key}
               style={styles.tab}
+              
               // on pressing of tabs route to that screen and also update state when search tab pressed
-              onPress={()=>{jumpToIndex(index);  this.onButtonPress(tabKey)}}
+              onPress={()=>{jumpToIndex(index); }}
               background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
               {/* show the tabbaricon */}
               <View style={styles.tab}>

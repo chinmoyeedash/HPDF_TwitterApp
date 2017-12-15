@@ -40,7 +40,7 @@ const HomeScreenTab = TabNavigator({
 //creating drawernavigator for mainscreen needed to show the side drawer and the screens its linked to
 const HomeScreenRouter = DrawerNavigator(
   {
-    Home: { screen: HomeScreenTab  },
+    Home: { screen: HomeScreenTab },
     Profile: { screen: Profile},
     Lists: { screen: Lists },
     Moments: { screen: Moments },

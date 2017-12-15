@@ -53,6 +53,7 @@ const TwitterCard = () => {
 
                <Button default small transparent>
                  <Icon name="mail" />
+                 <Text style={ styles.buttonTextStyle }>5</Text>
                  </Button>
 
 
